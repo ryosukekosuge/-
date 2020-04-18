@@ -20,7 +20,7 @@ class BooksController < ApplicationController
     end
   end
   def edit
-   @book = Book.find(params[:id])
+    @book = Book.find(params[:id])
   end
   def update
     @book = Book.find(params[:id])
@@ -35,7 +35,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     if book.destroy
     flash[:notice] = "Book was successfully destroyed."
-    render 'index'
+    redirect_to books_path
   else
     flash[:notice] = "消去できませんでした"
     render 'index'
